@@ -3,13 +3,17 @@ import sys
 Choice = {1:"rock", 2:"paper", 3:"scissors" }
 winner = {1:3, 2:1, 3:2} # player win options
 
-# Function to loop the game again
 def rematch():
-    player = int(input(print("choice : rock = 1, paper = 2, scissors = 3 ")))
+    """ function to loop the game again """
+
+    player = input(print("choice : rock = 1, paper = 2, scissors = 3 "))
     player_c = random.randint(1, 3)
-    while player not in range(1, 4):
+
+    while player not in ["1", "2", "3"]:
         player = int(input("Enter number in range 1-3"))
-    while player in range(1, 4):
+
+    while player in ["1", "2", "3"]:
+        player = int(player)
         if player == player_c:
             print(f"tie between you.\n  Player chioce:{Choice.get(player)},\n  Computer chioce:{Choice.get(player_c)}\nlet's try again.")
             player = int(input(print("choice : rock = 1, paper = 2, scissors = 3 ")))
@@ -32,14 +36,15 @@ def rematch():
 
 
 print("Welcome to a 'Rock, Paper, Scissors' game")
-player = int(input(print("choice : rock = 1, paper = 2, scissors = 3 ")))
+player = input(print("choice : rock = 1, paper = 2, scissors = 3 "))
 player_c = random.randint(1, 3)
 
 # allow player number only
-while player not in range(1, 4):
-   player = int(input("Enter number in range 1-3"))
+while player not in ["1", "2", "3"]:
+   player = input("Enter number in range 1-3")
 
-while player in range(1, 4):
+while player in ["1", "2", "3"]:
+    player = int(player)
     if player == player_c:
         print(f"tie between you.\n  Player chioce:{Choice.get(player)},\n  Computer chioce:{Choice.get(player_c)}\nlet's try again.")
         player = int(input(print("choice : rock = 1, paper = 2, scissors = 3 ")))
